@@ -9,6 +9,7 @@ class Main extends Component {
   state = {
     date: '',
     name: '',
+    time: ''
   }
 
   componentDidMount() {
@@ -30,9 +31,15 @@ class Main extends Component {
           if (race.date === closest) name = race.raceName;
         });
 
+        let time = '';
+        races.forEach(race => {
+          if (race.date === closest) time = race.time;
+        });
+
         this.setState({
           date: closest,
-          name: name
+          name: name,
+          time: time
         });
       })
       .catch(err => console.log(err));
@@ -40,7 +47,7 @@ class Main extends Component {
 
   render() {
     return (
-      <Paper style={{ padding: 25, margin: 25, background: 'red' }}>
+      <Paper style={{ padding: 25, margin: 0, background: 'red' }}>
 
         <Typography variant="headline" color="inherit" style={{ marginBottom: 20, color: 'white' }}>
           F1 NEXT RACE COUNTDOWN TIMER
@@ -65,7 +72,7 @@ class Main extends Component {
                 </Grid>
 
                 <Grid item xs={12}>
-                  <TimeField date={this.state.date} />
+                  <TimeField date={this.state.date} time={this.state.time} />
                 </Grid>
 
               </Grid>
