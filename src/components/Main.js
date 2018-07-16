@@ -4,12 +4,14 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import TimeField from './TimeField';
+import Spinner from './Spinner';
 
 class Main extends Component {
   state = {
     date: '',
     name: '',
-    time: ''
+    time: '',
+    loading: true
   }
 
   componentDidMount() {
@@ -39,13 +41,36 @@ class Main extends Component {
         this.setState({
           date: closest,
           name: name,
-          time: time
+          time: time,
+          loading: false
         });
       })
       .catch(err => console.log(err));
   }
 
   render() {
+    const view = (
+      <Grid container alignItems="stretch" justify="space-around" direction="column">
+
+        <Grid item>
+          <Typography variant="title" color="inherit" style={{ marginBottom: 10 }}>
+            {this.state.name}
+          </Typography>
+        </Grid>
+
+        <Grid item>
+          <Typography variant="subheading" color="inherit" style={{ marginBottom: 20 }}>
+            {this.state.date}
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12}>
+          <TimeField date={this.state.date} time={this.state.time} />
+        </Grid>
+
+      </Grid>
+    );
+
     return (
       <Paper style={{ padding: 25, margin: 0, background: 'red' }}>
 
@@ -54,31 +79,11 @@ class Main extends Component {
         </Typography>
 
         <Paper style={{ padding: 25 }}>
-
           <Grid container alignItems="center" justify="center" direction="row">
             <Grid item xs={12}>
-              <Grid container alignItems="stretch" justify="space-around" direction="column">
-
-                <Grid item>
-                  <Typography variant="title" color="inherit" style={{ marginBottom: 10 }}>
-                    {this.state.name}
-                  </Typography>
-                </Grid>
-
-                <Grid item>
-                  <Typography variant="subheading" color="inherit" style={{ marginBottom: 20 }}>
-                    {this.state.date}
-                  </Typography>
-                </Grid>
-
-                <Grid item xs={12}>
-                  <TimeField date={this.state.date} time={this.state.time} />
-                </Grid>
-
-              </Grid>
+              {this.state.loading ? <Spinner /> : view}
             </Grid>
           </Grid>
-
         </Paper>
 
       </Paper>
