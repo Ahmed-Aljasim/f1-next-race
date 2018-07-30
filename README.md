@@ -24,5 +24,4 @@ The follwoing command will automatically run the app on Port 3000.
 npm start
 ```
 ---
-Alternately, you could check the app on this URL: [Click here](http://13.126.35.234  "F1 Next Race")
-*Note that this link might not be avalible in the future!*
+Alternately, you could check the app on this URL: [Click here](https://ahmed-aljasim.github.io/f1-next-race/  "F1 Next Race")
