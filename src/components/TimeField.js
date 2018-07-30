@@ -67,32 +67,40 @@ class TimeField extends Component {
   render() {
     return (
       <Grid container alignItems="stretch" justify="space-around">
-        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={2}>
+        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={6} sm={3}>
           <Typography variant="title" color="inherit">
             {this.state.d}
           </Typography>
-          d
+          <Typography variant="body1" color="inherit">
+            d
+          </Typography>
         </Grid>
 
-        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={2}>
+        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={6} sm={3}>
           <Typography variant="title" color="inherit">
             {this.state.h}
           </Typography>
-          h
+          <Typography variant="body1" color="inherit">
+            h
+          </Typography>
         </Grid>
 
-        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={2}>
+        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={6} sm={3}>
           <Typography variant="title" color="inherit">
             {this.state.m}
           </Typography>
-          m
+          <Typography variant="body1" color="inherit">
+            m
+          </Typography>
         </Grid>
 
-        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={2}>
+        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={6} sm={3}>
           <Typography variant="title" color="inherit">
             {this.state.s}
           </Typography>
-          s
+          <Typography variant="body1" color="inherit">
+            s
+          </Typography>
         </Grid>
       </Grid>
     )
