@@ -1,21 +1,23 @@
+// React
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// Material Ui core
 import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = theme => ({
-  progress: {
-    margin: theme.spacing.unit * 2,
-    color: 'red'
-  }
-});
+// Material Ui style
+import { withStyles } from '@material-ui/core/styles';
 
-function Spinner(props) {
+// style
+import styles from './styles';
+
+const Spinner = props => {
   const { classes } = props;
+
   return (
     <div>
-      <Grid container alignItems="stretch" justify="space-around" direction="row">
+      <Grid container justify="space-around">
         <Grid item>
           <CircularProgress className={classes.progress} size={50} />
         </Grid>

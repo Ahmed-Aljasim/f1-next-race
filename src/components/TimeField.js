@@ -1,14 +1,21 @@
+// React
 import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+
+// Moment js
 import moment from 'moment';
+
+// Material Ui core
+import Grid from '@material-ui/core/Grid';
+
+// Components
+import TimeSq from './TimeSq';
 
 class TimeField extends Component {
   state = {
-    d: '',
-    h: '',
-    m: '',
-    s: '',
+    d: 0,
+    h: 0,
+    m: 0,
+    s: 0,
     initDelay: true
   }
 
@@ -40,14 +47,14 @@ class TimeField extends Component {
     const x = new moment({ y: r[0], M: r[1], d: r[2], h: t[0], m: t[1], s: 0, ms: 0 });
     const y = new moment({ y: c[0], M: c[1], d: c[2], h: cH, m: cM, s: cS, ms: 0 });
     const duration = moment.duration(x.diff(y));
-    
+
     let monthsToDays = 0;
     // duration._data.months should be converted to days
-    if (duration._data.months !== 0 ) monthsToDays = Math.abs(moment().diff(raceDate, 'days'));
+    if (duration._data.months !== 0) monthsToDays = Math.abs(moment().diff(raceDate, 'days'));
 
     // Set the states to the new values
     this.setState({
-      d: duration._data.days + monthsToDays, 
+      d: duration._data.days + monthsToDays,
       h: duration._data.hours,
       m: duration._data.minutes,
       s: duration._data.seconds
@@ -67,43 +74,12 @@ class TimeField extends Component {
   render() {
     return (
       <Grid container alignItems="stretch" justify="space-around">
-        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={6} sm={3}>
-          <Typography variant="title" color="inherit">
-            {this.state.d}
-          </Typography>
-          <Typography variant="body1" color="inherit">
-            d
-          </Typography>
-        </Grid>
-
-        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={6} sm={3}>
-          <Typography variant="title" color="inherit">
-            {this.state.h}
-          </Typography>
-          <Typography variant="body1" color="inherit">
-            h
-          </Typography>
-        </Grid>
-
-        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={6} sm={3}>
-          <Typography variant="title" color="inherit">
-            {this.state.m}
-          </Typography>
-          <Typography variant="body1" color="inherit">
-            m
-          </Typography>
-        </Grid>
-
-        <Grid item style={{ textAlign: 'center', padding: 10 }} xs={6} sm={3}>
-          <Typography variant="title" color="inherit">
-            {this.state.s}
-          </Typography>
-          <Typography variant="body1" color="inherit">
-            s
-          </Typography>
-        </Grid>
+        <TimeSq value={this.state.d} text='d' />
+        <TimeSq value={this.state.h} text='h' />
+        <TimeSq value={this.state.m} text='m' />
+        <TimeSq value={this.state.s} text='s' />
       </Grid>
-    )
+    );
   }
 }
 
