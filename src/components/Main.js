@@ -30,7 +30,7 @@ class Main extends Component {
 
   async componentDidMount() {
     await axios
-      .get('https://ergast.com/api/f1/current.json')
+      .get('https://ergast.com/api/f1/2019.json')
       .then(res => {
         const { Races } = res.data.MRData.RaceTable;
 
