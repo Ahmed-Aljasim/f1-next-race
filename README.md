@@ -9,7 +9,7 @@ This is a simple app that will show you the remaining time to the next F1 race. 
 	* To Easily Make HTTP Requests: [Axios](https://github.com/axios/axios "Axios") 
 	* To Manipulate Time and Date: [Moment JS](https://momentjs.com "Moment JS") 
 
-![A screen shot of the final app](https://s3.ap-south-1.amazonaws.com/f1-next-race/snapshot.PNG)
+![A screen shot of the final app](/relative/path/to/snapshot.png?raw=true)
 
 ---
 To run the app on your machine after you clone it, type the following in your CMD or Terminal:
@@ -24,4 +24,4 @@ The follwoing command will automatically run the app on Port 3000.
 npm start
 ```
 ---
-Alternately, you could check the app on this URL: [Click here](https://ahmed-aljasim.github.io/f1-next-race/  "F1 Next Race")
+You could check the app on this URL: [Click here](https://ahmed-aljasim.github.io/f1-next-race/  "F1 Next Race")
